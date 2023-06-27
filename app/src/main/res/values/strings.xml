@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SSF2Statistics</string>
+    <string name="BuscarPersonaje" />
+    <string name="buscar_personaje" />
 </resources>

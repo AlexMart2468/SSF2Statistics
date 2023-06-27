@@ -3,7 +3,7 @@ package com.example.ssf2statistics.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "personajes")
+@Entity(tableName = "Personajes")
 data class Personaje(
     @PrimaryKey val id: Int,
     val nombre: String,
@@ -11,6 +11,4 @@ data class Personaje(
     val resume: String,
     val juego: String,
     val saga: String,
-
-
 )

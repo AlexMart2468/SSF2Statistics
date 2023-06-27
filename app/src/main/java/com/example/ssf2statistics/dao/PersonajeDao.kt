@@ -8,11 +8,12 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.ssf2statistics.models.Personaje
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PersonajeDao {
     @Query("SELECT * FROM personajes")
-    fun getAllPersonajes(): LiveData<List<Personaje>>
+    fun getAllPersonajes(): Flow<List<Personaje>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPersonaje(personaje: Personaje)
