@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.ssf2statistics.dao.PersonajeDao
 import com.example.ssf2statistics.models.Personaje
 
-@Database(entities = [Personaje::class], version = 1)
+@Database(entities = [Personaje::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun personajeDao(): PersonajeDao
@@ -34,3 +36,4 @@ abstract class AppDatabase : RoomDatabase() {
         }
     }
 }
+

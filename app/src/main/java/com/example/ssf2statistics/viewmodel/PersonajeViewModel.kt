@@ -30,8 +30,6 @@ class PersonajeViewModel(application: Application) : AndroidViewModel(applicatio
      fun listarPersonajes(){
         viewModelScope.launch {
             _listaNotas.value = withContext(Dispatchers.IO){
-
-
                 db.personajeDao().getAllPersonajes()
             }
         }

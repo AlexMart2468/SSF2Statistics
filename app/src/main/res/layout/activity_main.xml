@@ -9,21 +9,36 @@
             type="com.example.ssf2statistics.viewmodel.PersonajeViewModel" />
     </data>
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/MeleeBlue"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        </androidx.appcompat.widget.Toolbar>
+
 
         <EditText
             android:id="@+id/etBuscar"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="20dp"
             android:layout_weight="1"
             android:hint="Buscar Personaje"
             android:imeOptions="actionSearch"
             android:singleLine="true"
             android:textColor="#E91E63"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             android:text="@={modelo.parametroBusqueda}"/>
 
         <androidx.recyclerview.widget.RecyclerView

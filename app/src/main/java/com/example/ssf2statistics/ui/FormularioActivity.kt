@@ -71,5 +71,4 @@ class FormularioActivity : AppCompatActivity(), BorrarDialogo.BorrarListener {
         viewModel.deletePersonaje()
     }
 
-
 }

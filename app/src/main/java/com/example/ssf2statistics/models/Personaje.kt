@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Personajes")
 data class Personaje(
-    @PrimaryKey var id: Long,
+    @PrimaryKey (autoGenerate = true)
+    var id: Long = 0,
     val nombre: String,
     val finalsmash: String,
     val resume: String,

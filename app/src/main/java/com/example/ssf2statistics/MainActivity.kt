@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "Super Smash Flash 2"
+            setLogo(R.drawable.smash_ball)
+        }
 
 
         // TODO ENLAZAR EL MODELO CON EL LIVE DATA
