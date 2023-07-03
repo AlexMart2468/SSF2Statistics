@@ -2,4 +2,16 @@
     <string name="app_name">SSF2Statistics</string>
     <string name="BuscarPersonaje" />
     <string name="buscar_personaje" />
+    <string name="Buscar" />
+    <string name="Nombre" />
+    <string name="FinalSmash" />
+    <string name="Descripcion">\n</string>
+    <string name="Juego" />
+    <string name="Franquicia" />
+    <string name="Save" />
+    <string name="Guardar" />
+    <string name="Borrar" />
+    <string name="borrar_personaje">Borrar Personaje?</string>
+    <string name="yes">Si, borrar</string>
+    <string name="cancel">Cancelar</string>
 </resources>

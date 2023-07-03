@@ -1,6 +1,5 @@
 package com.example.ssf2statistics.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -8,19 +7,24 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.ssf2statistics.models.Personaje
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PersonajeDao {
     @Query("SELECT * FROM personajes")
-    fun getAllPersonajes(): Flow<List<Personaje>>
+    suspend fun getAllPersonajes(): List<Personaje>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPersonaje(personaje: Personaje)
+    @Query("SELECT * FROM personajes WHERE id = :id")
+    suspend fun getById(id:Long):Personaje
+
+    @Query("SELECT * FROM personajes WHERE nombre LIKE '%'|| :name || '%' OR saga LIKE '%'|| :name || '%'")
+    suspend fun getByName(name:String): List<Personaje>
+
+    @Insert
+    suspend fun insertPersonaje(personaje: ArrayList<Personaje>):List<Long>
 
     @Update
-    suspend fun updatePersonaje(personaje: Personaje)
+    suspend fun updatePersonaje(personaje: Personaje):Int
 
     @Delete
-    suspend fun deletePersonaje(personaje: Personaje)
+    suspend fun deletePersonaje(personaje: Personaje):Int
 }

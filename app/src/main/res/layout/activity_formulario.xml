@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="modelo"
+            type="com.example.ssf2statistics.viewmodel.FormularioViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.FormularioActivity">
+
+        <EditText
+            android:id="@+id/tvNombre"
+            android:hint="Nombre: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="4dp"
+            android:text="@={modelo.nombre}"/>
+
+        <EditText
+            android:id="@+id/tvSmashball"
+            android:hint="Movimiento Final: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNombre"
+            android:layout_marginTop="4dp"
+            android:text="@={modelo.fismash}"/> />
+
+        <EditText
+            android:id="@+id/tvResume"
+            android:hint="Titulo:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSmashball"
+            android:layout_marginTop="4dp"
+            android:text="@={modelo.titler}"/> />
+
+        <EditText
+            android:id="@+id/tvGame"
+            android:hint="Primera Aparicion: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvResume"
+            android:layout_marginTop="4dp"
+            android:text="@={modelo.entrysm}"/> />
+
+        <EditText
+            android:id="@+id/tvFranchise"
+            android:hint="Saga Origen: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGame"
+            android:layout_marginTop="4dp"
+            android:text="@={modelo.origen}"/> />
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:hint="Save"
+            android:layout_width="87dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="16dp"
+            android:tint="#FFFFFF"
+            app:backgroundTint="#673AB7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFranchise"
+            android:src="@drawable/ic_save"
+            android:onClick="@{()->modelo.insertPersonaje()}"/>
+
+        <LinearLayout
+            android:id="@+id/LinearEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFranchise"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnEditar"
+                android:text="Guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:onClick="@{()->modelo.insertPersonaje()}"/>
+
+            <Button
+                android:id="@+id/btnBorrar"
+                android:text="Borrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->modelo.insertPersonaje()}"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

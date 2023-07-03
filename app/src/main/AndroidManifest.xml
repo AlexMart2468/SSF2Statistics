@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SSF2Statistics"
         tools:targetApi="31">
+        <activity android:name=".viewmodel.PersonajeViewModel" />
+        <activity android:name=".viewmodel.FormularioViewModel"/>
+        <activity android:name=".dialogos.BorrarDialogo" />
+        <activity
+            android:name=".ui.FormularioActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

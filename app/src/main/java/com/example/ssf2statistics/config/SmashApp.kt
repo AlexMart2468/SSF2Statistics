@@ -1,6 +1,7 @@
 package com.example.ssf2statistics.config
 
 import android.app.Application
+import android.os.Debug
 import androidx.room.Room
 import com.example.ssf2statistics.dao.PersonajeDao
 
@@ -11,7 +12,7 @@ class SmashApp: Application() {
     }
 
     override fun onCreate() {
-        super.onCreate()
+        super.onCreate();
         db = Room.databaseBuilder(
             this,
             AppDatabase::class.java,
