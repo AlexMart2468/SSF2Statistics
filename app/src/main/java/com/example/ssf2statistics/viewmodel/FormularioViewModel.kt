@@ -1,6 +1,8 @@
 package com.example.ssf2statistics.viewmodel
 
+import android.content.Context
 import android.util.Log
+import android.widget.ArrayAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +16,7 @@ import kotlinx.coroutines.withContext
 import java.util.OptionalLong
 import kotlin.text.*
 
-class FormularioViewModel: ViewModel() {
+class FormularioViewModel(): ViewModel() {
     var id = MutableLiveData<Long>()
     var nombre = MutableLiveData<String>()
     var fismash = MutableLiveData<String>()
@@ -23,6 +25,7 @@ class FormularioViewModel: ViewModel() {
     var origen = MutableLiveData<String>()
     var operacion = Constantes.OPERACION_INSERTAR
     val thisgamewinneris = MutableLiveData<Boolean>()
+
 
     fun insertPersonaje(){
         if(validarinformacion()){

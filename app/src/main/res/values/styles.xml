@@ -6,5 +6,5 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <color name="blue">#4A4559</color>
+    <color name="blue">#DEBA00</color>
 </resources>

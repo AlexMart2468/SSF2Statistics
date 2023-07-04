@@ -3,12 +3,17 @@ package com.example.ssf2statistics.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.ssf2statistics.MainActivity
+import com.example.ssf2statistics.R
 import com.example.ssf2statistics.config.Constantes
 import com.example.ssf2statistics.databinding.ActivityFormularioBinding
 import com.example.ssf2statistics.dialogos.BorrarDialogo
@@ -21,12 +26,14 @@ class FormularioActivity : AppCompatActivity(), BorrarDialogo.BorrarListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_formulario)
         setContentView(binding.root)
-        this.dialog = BorrarDialogo(this)
+        dialog = BorrarDialogo()
         viewModel = ViewModelProvider(this).get()
         viewModel.operacion = intent.getStringExtra(Constantes.OPERACION_KEY)!!
         binding.modelo = viewModel
         binding.lifecycleOwner = this
+
 
         viewModel.thisgamewinneris.observe(this, Observer {
             if(it){
@@ -54,7 +61,7 @@ class FormularioActivity : AppCompatActivity(), BorrarDialogo.BorrarListener {
     }
 
     private fun mostrarDialogo() {
-        dialog.showNow(supportFragmentManager, "BorrarDialogo")
+        dialog.show(supportFragmentManager, "BorrarDialogo")
     }
 
     private fun mostrarMensaje(s: String){
@@ -70,5 +77,4 @@ class FormularioActivity : AppCompatActivity(), BorrarDialogo.BorrarListener {
     override fun borrarPersonaje() {
         viewModel.deletePersonaje()
     }
-
 }
